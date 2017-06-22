@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+
+group = 'com.mindtree'
+version = '0.0.1-SNAPSHOT'
+
+description = """Rest-Web-Service"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+     mavenLocal()
+     mavenCentral()
+     maven { url 'http://repo.spring.io/libs-release' }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web-services', version:'1.5.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version:'1.5.3.RELEASE'
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version:'2.2.0'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version:'2.8.8'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.5.3.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+    compileOnly group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version:'1.5.3.RELEASE'
+}
