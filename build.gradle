@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
 
 group = 'com.mindtree'
 version = '0.0.1-SNAPSHOT'
